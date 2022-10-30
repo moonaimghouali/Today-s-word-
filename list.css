@@ -1,0 +1,24 @@
+.myWords{
+    width: 350px;
+    height: 580px;
+    background-color: white;
+    z-index: 2;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    padding: 10px;
+    color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    transition: 100ms ease-in;
+}
+
+#listTitle{
+    width: 100%;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+}
