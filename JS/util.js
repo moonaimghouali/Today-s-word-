@@ -4,7 +4,12 @@ export function changeColor (colors) {
 
     let index = Math.floor(Math.random() * colors.length);
     let root = document.documentElement;
-    root.style.setProperty("--bg-color",colors[index]);
+    if(root.style.backgroundColor !== colors[index]) {
+        root.style.setProperty("--bg-color",colors[index]);
+    }else{
+        changeColor(colors)
+    }
+    
 }
 
 // this function load the word into the popup page
@@ -28,12 +33,11 @@ export function loadWord (data , wordInfo) {
     let title = document.getElementById("word")
     let def =  document.getElementById("definition")
     let example = document.getElementById("example")
-    
+
+    if(wordInfo.word.length > 10){title.style.fontSize = "36px"}
     title.innerHTML = wordInfo.word + "<span> "+wordInfo.partOfSpeech +"</span>"
     def.innerHTML = "<span>def. </span>" + wordInfo.definition
     example.innerHTML = "<span>e.g. </span>"+ wordInfo.example
-
-    if(wordInfo.word.length > 10){title.style.fontSize = "36px"}
 }
 
 // this function fetches the data from the wordsAPI
