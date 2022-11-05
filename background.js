@@ -1,16 +1,19 @@
-chrome.runtime.onMessage.addListener(async (msg, sender, response) =>{
+// chrome.runtime.onMessage.addListener(async (msg, sender, response) =>{
 
-    //fetch random word from the api 
-    let apiUrl = "https://api.dictionaryapi.dev/api/v2/entries/en/"
-    let word = "hello"
-    let fetchUrl = apiUrl+word
+//     // //fetch random word from the api 
+//     // let apiUrl = "https://api.dictionaryapi.dev/api/v2/entries/en/"
+//     // let word = "hello"
+//     // let fetchUrl = apiUrl+word
 
-    let response = await fetch(fetchUrl)
-    //alert(fetchUrl)
-    response = response.json()
+//     // let response = await fetch(fetchUrl)
+//     // //alert(fetchUrl)
+//     // response = response.json()
 
 
-    if(msg = "message"){
-        response({text: JSON.stringify(response) })
-    }
-})
+//     if(msg = "message"){
+//         response({text: JSON.stringify(response) })
+//     }
+// })
+
+
+chrome.windows.create({url: chrome.extension.getURL("popup.html"), type: "popup"});
